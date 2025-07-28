@@ -12,6 +12,13 @@ function App() {
     );
   };
 
+  const handleClose = ({ target, currentTarget }) => {
+    if (target !== currentTarget) {
+      return;
+    }
+    setMessage(null);
+  };
+
   return (
     <>
       <div className={S.container}>
@@ -29,7 +36,7 @@ function App() {
         </form>
       </div>
       {message && (
-        <div className={S.modal}>
+        <div className={S.modal} onClick={handleClose}>
           <div className={S.modalBody}>{message}</div>
         </div>
       )}
